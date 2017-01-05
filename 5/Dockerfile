@@ -59,6 +59,9 @@ RUN set -x \
 
 ENV PATH /usr/share/kibana/bin:$PATH
 
+RUN /usr/share/kibana/bin/kibana-plugin install x-pack
+COPY config/kibana.yml /etc/kibana/kibana.yml
+
 COPY docker-entrypoint.sh /
 
 EXPOSE 5601
